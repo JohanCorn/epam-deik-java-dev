@@ -1,7 +1,9 @@
 package com.epam.training.ticketservice.core.account;
 
-import com.epam.training.ticketservice.account.entity.Account;
-import com.epam.training.ticketservice.account.repository.AccountRepository;
+import java.util.Optional;
+
+import com.epam.training.ticketservice.core.account.persistence.Account;
+import com.epam.training.ticketservice.core.account.persistence.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean signIn(String username, String password) {
-        accountRepository.findAccountByUsernameAndPassword(username, password)
+        accountRepository.findByUsernameAndPassword(username, password)
                 .ifPresent(account -> signedInAccount = account);
 
         return signedInAccount != null;
@@ -24,6 +26,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void signOut() {
         this.signedInAccount = null;
+    }
+
+    @Override
+    public Optional<Account> getSignedInAccount() {
+        return Optional.ofNullable(signedInAccount);
     }
 
 }

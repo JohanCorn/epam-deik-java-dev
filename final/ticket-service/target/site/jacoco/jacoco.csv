@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ticket-service,com.epam.training.ticketservice.core.account,AccountServiceImpl,0,27,0,2,0,6,0,5,0,4
+ticket-service,com.epam.training.ticketservice.core.movie,MovieServiceImpl,0,32,0,0,0,7,0,5,0,5
+ticket-service,com.epam.training.ticketservice,Application,5,3,0,0,2,1,1,1,1,1
+ticket-service,com.epam.training.ticketservice.core.configuration,InMemoryDatabaseInitializer,0,12,0,0,0,3,0,1,0,1
+ticket-service,com.epam.training.ticketservice.core.account.persistence,Account,0,9,0,0,0,4,0,1,0,1
+ticket-service,com.epam.training.ticketservice.core.movie.persistence,Movie,8,12,0,0,1,5,1,1,1,1
+ticket-service,com.epam.training.ticketservice.ui.configuration,PromptConfiguration,8,3,0,0,1,1,1,1,1,1
+ticket-service,com.epam.training.ticketservice.ui.command,MovieCommand,95,0,4,0,22,0,11,0,9,0
+ticket-service,com.epam.training.ticketservice.ui.command,AccountCommand,0,27,0,2,0,6,0,5,0,4

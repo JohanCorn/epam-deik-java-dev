@@ -1,4 +1,4 @@
-package com.epam.training.ticketservice.account.entity;
+package com.epam.training.ticketservice.core.account.persistence;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

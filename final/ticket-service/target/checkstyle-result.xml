@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.29">
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\Application.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\account\AccountService.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\account\AccountServiceImpl.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\account\persistence\Account.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\account\persistence\AccountRepository.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\configuration\InMemoryDatabaseInitializer.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\MovieService.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\MovieServiceImpl.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\persistence\Movie.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\core\movie\persistence\MovieRepository.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\command\AccountCommand.java">
+<error line="16" severity="warning" message="Line is longer than 120 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\command\MovieCommand.java">
+<error line="60" severity="warning" message="&apos;lambda arguments&apos; has incorrect indentation level 24, expected level should be 20." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\java\com\epam\training\ticketservice\ui\configuration\PromptConfiguration.java">
+</file>
+<file name="D:\EPAM\epam-deik-java-dev\final\ticket-service\src\main\resources\application.properties">
+</file>
+</checkstyle>

@@ -1,0 +1,33 @@
+# Created at 2022-12-03T02:52:47.928
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'You just signed in'.
+
+# Created at 2022-12-03T02:52:47.928
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'Signed in with privileged account '<admin>''.
+
+# Created at 2022-12-03T02:52:47.944
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'You just signed in'.
+
+# Created at 2022-12-03T02:52:47.959
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'null'.
+
+# Created at 2022-12-03T02:52:47.959
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'null'.
+
+# Created at 2022-12-03T02:52:47.975
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'You just signed in'.
+
+# Created at 2022-12-03T02:52:47.975
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'null'.
+
+# Created at 2022-12-03T02:52:47.991
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'Login failed due to incorrect credentials'.
+
+# Created at 2022-12-03T02:52:47.991
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'You just signed in'.
+
+# Created at 2022-12-03T02:52:48.006
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'null'.
+
+# Created at 2022-12-03T02:52:48.006
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'You are not signed in'.
+

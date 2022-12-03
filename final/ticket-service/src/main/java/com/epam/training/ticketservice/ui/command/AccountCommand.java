@@ -13,7 +13,8 @@ public class AccountCommand {
 
     @ShellMethod(key = "sign in privileged", value = "Sign In Privileged")
     public String signInPrivileged(String username, String password) {
-        return accountService.signIn(username, password) ? "You just signed in" : "Login failed due to incorrect credentials";
+        return accountService.signIn(username, password) ? "You just signed in"
+                : "Login failed due to incorrect credentials";
     }
 
     @ShellMethod(key = "sign out", value = "Sign Out")

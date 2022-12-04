@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Account {
+
     @Id
     private String username;
 
@@ -19,4 +20,5 @@ public class Account {
         this.username = username;
         this.password = password;
     }
+
 }

@@ -14,4 +14,5 @@ public class PromptConfiguration implements PromptProvider {
     public AttributedString getPrompt() {
         return new AttributedString("Ticket service>", DEFAULT.foreground(GREEN));
     }
+
 }

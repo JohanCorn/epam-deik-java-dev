@@ -25,7 +25,7 @@ public class AccountCommand {
     @ShellMethod(key = "describe account", value = "Describe Account")
     public String describeAccount() {
         return accountService.getSignedInAccount()
-                .map(account -> "Signed in with privileged account '<" + account.getUsername() + ">'")
+                .map(account -> "Signed in with privileged account '" + account.getUsername() + "'")
                 .orElse("You are not signed in");
     }
 

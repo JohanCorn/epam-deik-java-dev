@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Movie {
+
     @Id
     private String title;
 
@@ -27,4 +28,5 @@ public class Movie {
     public String toString() {
         return title + " (" + genre + ", " + duration + " minutes)";
     }
+
 }

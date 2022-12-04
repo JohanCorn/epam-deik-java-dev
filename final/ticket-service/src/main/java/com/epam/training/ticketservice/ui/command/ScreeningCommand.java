@@ -44,6 +44,12 @@ public class ScreeningCommand {
                                 return "There is an overlapping screening";
                             }
 
+                            if (screeningService.getByRoomName(roomName)
+                                    .stream()
+                                    .anyMatch(screening -> screening.isInBreak(newScreening))) {
+                                return "This would start in the break period after another screening in this room";
+                            }
+
                             return "Screen created: " + screeningService.create(newScreening);
                         })
                         .orElse("No such room"))

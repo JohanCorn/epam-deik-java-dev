@@ -34,6 +34,8 @@ public class Screening {
 
     private Date start;
 
+    private static final long BREAK = 600_000L;
+
     public Screening(Movie movie, Room room, Date start) {
         this.movie = movie;
         this.room = room;
@@ -54,7 +56,11 @@ public class Screening {
     }
 
     public boolean isOverlapping(Screening anotherScreening) {
-        return !(getStart().before(anotherScreening.getStart()) && getEnd().after(anotherScreening.getEnd()));
+        return !(getStart().getTime() > anotherScreening.getEnd().getTime()) && !(getEnd().getTime() < anotherScreening.getStart().getTime());
+    }
+
+    public boolean isInBreak(Screening anotherScreening) {
+        return !(getStart().getTime() > anotherScreening.getEnd().getTime() + BREAK) && !(getEnd().getTime() + BREAK < anotherScreening.getStart().getTime());
     }
 
 }

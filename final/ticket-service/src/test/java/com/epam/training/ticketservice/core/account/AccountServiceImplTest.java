@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 class AccountServiceImplTest {
 
     private final AccountRepository accountRepository = mock(AccountRepository.class);
+
     private final AccountService underTest = new AccountServiceImpl(accountRepository);
 
     @Test

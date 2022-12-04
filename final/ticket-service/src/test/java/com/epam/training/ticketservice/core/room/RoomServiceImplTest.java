@@ -20,7 +20,7 @@ class RoomServiceImplTest {
     private final RoomService underTest = new RoomServiceImpl(roomRepository);
 
     @Test
-    void testCreateRoomShouldStoreTheGivenRoomWhenInputRoomIsValid() {
+    void testCreateShouldStoreTheGivenRoomWhenInputIsValid() {
         // Given
         Mockito.when(roomRepository.save(ROOM))
                 .thenReturn(ROOM);
@@ -33,7 +33,7 @@ class RoomServiceImplTest {
     }
 
     @Test
-    void testGetRoomShouldReturnRoomWhenInputRoomIdIsValid() {
+    void testGetShouldReturnOptionalRoomWhenInputIsValid() {
         // Given
         Mockito.when(roomRepository.findById(ROOM.getName()))
                 .thenReturn(Optional.of(ROOM));
@@ -48,7 +48,7 @@ class RoomServiceImplTest {
     }
 
     @Test
-    void testGetRoomShouldReturnOptionalEmptyWhenInputRoomIdDoesNotExist() {
+    void testGetShouldReturnEmptyOptionalWhenInputIsNotValid() {
         // Given
         Mockito.when(roomRepository.findById("dummy"))
                 .thenReturn(Optional.empty());
@@ -64,7 +64,7 @@ class RoomServiceImplTest {
     }
 
     @Test
-    void testGetRoomListShouldReturnAStaticList() {
+    void testListShouldReturnAStaticListOfRooms() {
         // Given
         Mockito.when(roomRepository.findAll())
                 .thenReturn(List.of(ROOM));
@@ -79,13 +79,13 @@ class RoomServiceImplTest {
     }
 
     @Test
-    void testUpdateRoomShouldUpdateWhenRoomIsValid() {
+    void testUpdateShouldUpdateTheGivenRoomWhenInputIsValid() {
         // Given
         Mockito.when(roomRepository.findById(ROOM.getName()))
                 .thenReturn(Optional.of(ROOM));
 
         // When
-        // underTest.update(ROOM);
+        underTest.update(ROOM);
         Optional<Room> actual = underTest.get(ROOM.getName());
         Optional<Room> expected = Optional.of(ROOM);
 
@@ -95,7 +95,7 @@ class RoomServiceImplTest {
     }
 
     @Test
-    void testDeleteRoomShouldDeleteWhenRoomIsValid() {
+    void testDeleteShouldDeleteTheGivenRoomWhenInputIsValid() {
         // Given
         Mockito.when(roomRepository.findById(ROOM.getName()))
                 .thenReturn(Optional.empty());

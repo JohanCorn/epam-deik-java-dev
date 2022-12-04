@@ -1,9 +1,13 @@
 package com.epam.training.ticketservice.core.screening.persistence;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Date;
+import java.util.List;
+
 public interface ScreeningRepository extends CrudRepository<Screening, String> {
-    List<Screening> findScreeningsByRoomName(String roomName);
+
+    List<Screening> findByRoomName(String roomName);
+
+    List<Screening> findByMovieTitleAndRoomNameAndStart(String movieTitle, String roomName, Date start);
 }

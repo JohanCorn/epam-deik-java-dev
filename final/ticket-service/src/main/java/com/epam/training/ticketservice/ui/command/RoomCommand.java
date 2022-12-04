@@ -27,6 +27,19 @@ public class RoomCommand {
                 .orElse("Room created: " + roomService.create(new Room(name, rowsNum, columnsNum)));
     }
 
+    @ShellMethod(value = "Update Room", key = "update room")
+    @ShellMethodAvailability(value = "isSignedIn")
+    public String updateRoom(String name, int rowsNum, int columnsNum) {
+        return roomService.get(name)
+                .map(room -> {
+                    room.setRowsNum(rowsNum);
+                    room.setColumnsNum(columnsNum);
+                    roomService.update(room);
+                    return "Room updated: " + room;
+                })
+                .orElse("No such room");
+    }
+
     @ShellMethod(value = "Delete Room", key = "delete room")
     @ShellMethodAvailability(value = "isSignedIn")
     public String deleteRoom(String name) {

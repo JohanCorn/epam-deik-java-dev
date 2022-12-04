@@ -1,13 +1,14 @@
 package com.epam.training.ticketservice.core.screening;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 import com.epam.training.ticketservice.core.screening.persistence.Screening;
 import com.epam.training.ticketservice.core.screening.persistence.ScreeningRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +22,13 @@ public class ScreeningServiceImpl implements ScreeningService {
     }
 
     @Override
-    public List<Screening> getByRoomName(String roomName) {
-        return screeningRepository.findScreeningsByRoomName(roomName);
+    public List<Screening> listByRoomName(String roomName) {
+        return screeningRepository.findByRoomName(roomName);
+    }
+
+    @Override
+    public List<Screening> listByMovieTitleAndRoomNameAndStart(String movieTitle, String roomName, Date start) {
+        return screeningRepository.findByMovieTitleAndRoomNameAndStart(movieTitle, roomName, start);
     }
 
     @Override

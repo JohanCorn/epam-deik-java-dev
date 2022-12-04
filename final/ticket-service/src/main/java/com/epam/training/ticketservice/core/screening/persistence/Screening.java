@@ -48,7 +48,8 @@ public class Screening {
 
     @Override
     public String toString() {
-        return movie + ", screened in room " + room.getName() + ", at " + new SimpleDateFormat(Screening.getDateFormat()).format(start);
+        return movie + ", screened in room " + room.getName() + ", at "
+                + new SimpleDateFormat(Screening.getDateFormat()).format(start);
     }
 
     public static String getDateFormat() {
@@ -56,11 +57,13 @@ public class Screening {
     }
 
     public boolean isOverlapping(Screening anotherScreening) {
-        return !(getStart().getTime() > anotherScreening.getEnd().getTime()) && !(getEnd().getTime() < anotherScreening.getStart().getTime());
+        return !(getStart().getTime() > anotherScreening.getEnd().getTime())
+                && !(getEnd().getTime() < anotherScreening.getStart().getTime());
     }
 
     public boolean isInBreak(Screening anotherScreening) {
-        return !(getStart().getTime() > anotherScreening.getEnd().getTime() + BREAK) && !(getEnd().getTime() + BREAK < anotherScreening.getStart().getTime());
+        return !(getStart().getTime() > anotherScreening.getEnd().getTime() + BREAK)
+                && !(getEnd().getTime() + BREAK < anotherScreening.getStart().getTime());
     }
 
 }

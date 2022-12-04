@@ -2,7 +2,9 @@ package com.epam.training.ticketservice.ui.command;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import com.epam.training.ticketservice.core.account.AccountService;
@@ -38,13 +40,13 @@ public class ScreeningCommand {
 
                             Screening newScreening = new Screening(movie, room, startDate);
 
-                            if (screeningService.getByRoomName(roomName)
+                            if (screeningService.listByRoomName(roomName)
                                     .stream()
                                     .anyMatch(screening -> screening.isOverlapping(newScreening))) {
                                 return "There is an overlapping screening";
                             }
 
-                            if (screeningService.getByRoomName(roomName)
+                            if (screeningService.listByRoomName(roomName)
                                     .stream()
                                     .anyMatch(screening -> screening.isInBreak(newScreening))) {
                                 return "This would start in the break period after another screening in this room";
@@ -54,6 +56,20 @@ public class ScreeningCommand {
                         })
                         .orElse("No such room"))
                 .orElse("No such movie");
+    }
+
+    @ShellMethod(value = "Delete Screening", key = "delete screening")
+    @ShellMethodAvailability(value = "isSignedIn")
+    public String deleteScreening(String movieTitle, String roomName, String start) throws ParseException {
+        Date startDate = new SimpleDateFormat(Screening.getDateFormat()).parse(start);
+        return screeningService.listByMovieTitleAndRoomNameAndStart(movieTitle, roomName, startDate)
+                .stream()
+                .map(screening -> {
+                    screeningService.delete(screening);
+                    return "Screening deleted: " + screening;
+                })
+                .collect(Collectors.collectingAndThen(Collectors.joining("\n"),
+                        screenings -> screenings.isEmpty() ? "There are no screenings" : screenings));
     }
 
     @ShellMethod(value = "List Screenings", key = "list screenings")

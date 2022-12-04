@@ -15,14 +15,14 @@ import org.mockito.Mockito;
 
 class MovieServiceImplTest {
 
-    private static final Movie MOVIE = new Movie("Sátántangó", "darama", 450);
+    private static final Movie MOVIE = new Movie("The Movie", "The Genre", 30);
 
     private final MovieRepository movieRepository = mock(MovieRepository.class);
 
     private final MovieService underTest = new MovieServiceImpl(movieRepository);
 
     @Test
-    void testCreateMovieShouldStoreTheGivenProductWhenInputMovieIsValid() {
+    void testCreateShouldStoreTheGivenMovieWhenInputIsValid() {
         // Given
         Mockito.when(movieRepository.save(MOVIE))
                 .thenReturn(MOVIE);
@@ -35,13 +35,13 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void testGetMovieShouldReturnMovieWhenInputMovieIdIsValid() {
+    void testGetShouldReturnOptionalMovieWhenInputIsValid() {
         // Given
         Mockito.when(movieRepository.findById(MOVIE.getTitle()))
                 .thenReturn(Optional.of(MOVIE));
 
         // When
-        Optional<Movie> actual = underTest.get("Sátántangó");
+        Optional<Movie> actual = underTest.get("The Movie");
         Optional<Movie> expected = Optional.of(MOVIE);
 
         // Then
@@ -50,7 +50,7 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void testGetMovieShouldReturnOptionalEmptyWhenInputMovieIdDoesNotExist() {
+    void testGetShouldReturnEmptyOptionalWhenInputIsNotValid() {
         // Given
         Mockito.when(movieRepository.findById("dummy"))
                 .thenReturn(Optional.empty());
@@ -66,7 +66,7 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void testGetMovieListShouldReturnAStaticList() {
+    void testListShouldReturnAStaticListOfMovies() {
         // Given
         Mockito.when(movieRepository.findAll())
                 .thenReturn(List.of(MOVIE));
@@ -81,7 +81,7 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void testUpdateMovieShouldUpdateWhenMovieIsValid() {
+    void testUpdateShouldUpdateTheGivenMovieWhenInputIsValid() {
         // Given
         Mockito.when(movieRepository.findById(MOVIE.getTitle()))
                 .thenReturn(Optional.of(MOVIE));
@@ -97,7 +97,7 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void testDeleteMovieShouldDeleteWhenMovieIsValid() {
+    void testDeleteShouldDeleteTheGivenMovieWhenInputIsValid() {
         // Given
         Mockito.when(movieRepository.findById(MOVIE.getTitle()))
                 .thenReturn(Optional.empty());

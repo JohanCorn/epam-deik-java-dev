@@ -69,7 +69,7 @@ public class ScreeningCommand {
                     return "Screening deleted: " + screening;
                 })
                 .collect(Collectors.collectingAndThen(Collectors.joining("\n"),
-                        screenings -> screenings.isEmpty() ? "There are no screenings" : screenings));
+                    screenings -> screenings.isEmpty() ? "There are no screenings" : screenings));
     }
 
     @ShellMethod(value = "List Screenings", key = "list screenings")
@@ -78,7 +78,7 @@ public class ScreeningCommand {
                 .stream()
                 .map(Screening::toString)
                 .collect(Collectors.collectingAndThen(Collectors.joining("\n"),
-                        screenings -> screenings.isEmpty() ? "There are no screenings" : screenings));
+                    screenings -> screenings.isEmpty() ? "There are no screenings" : screenings));
     }
 
     private Availability isSignedIn() {

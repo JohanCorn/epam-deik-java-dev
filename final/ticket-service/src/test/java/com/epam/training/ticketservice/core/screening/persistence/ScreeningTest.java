@@ -43,6 +43,24 @@ public class ScreeningTest {
     }
 
     @Test
+    void testIsOverlappingShouldReturnFalseWhenScreeningStartedAfterAnotherScreeningEnded() {
+        // Given
+        // When
+        Screening anotherScreening = new Screening(MOVIE, ROOM, new Date(underTest.getStart().getTime() + 60 * 60_000L));
+        // Then
+        Assertions.assertFalse(underTest.isOverlapping(anotherScreening));
+    }
+
+    @Test
+    void testIsOverlappingShouldReturnFalseWhenAnotherScreeningStartedAfterScreeningEnded() {
+        // Given
+        // When
+        Screening anotherScreening = new Screening(MOVIE, ROOM, new Date(underTest.getStart().getTime() - 60 * 60_000L));
+        // Then
+        Assertions.assertFalse(underTest.isOverlapping(anotherScreening));
+    }
+
+    @Test
     void testGetDateFormatShouldReturnTheExactDateFormat() {
         // Given
         // When

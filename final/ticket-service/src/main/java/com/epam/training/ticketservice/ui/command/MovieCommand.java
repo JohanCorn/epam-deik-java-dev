@@ -1,7 +1,5 @@
 package com.epam.training.ticketservice.ui.command;
 
-import java.util.stream.Collectors;
-
 import com.epam.training.ticketservice.core.account.AccountService;
 import com.epam.training.ticketservice.core.movie.MovieService;
 import com.epam.training.ticketservice.core.movie.persistence.Movie;
@@ -10,6 +8,8 @@ import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellMethodAvailability;
+
+import java.util.stream.Collectors;
 
 @ShellComponent
 @AllArgsConstructor
@@ -57,7 +57,7 @@ public class MovieCommand {
                 .stream()
                 .map(Movie::toString)
                 .collect(Collectors.collectingAndThen(Collectors.joining("\n"),
-                        movies -> movies.isEmpty() ? "There are no movies at the moment" : movies));
+                    movies -> movies.isEmpty() ? "There are no movies at the moment" : movies));
     }
 
     private Availability isSignedIn() {

@@ -57,7 +57,7 @@ public class RoomCommand {
                 .stream()
                 .map(Room::toString)
                 .collect(Collectors.collectingAndThen(Collectors.joining("\n"),
-                        rooms -> rooms.isEmpty() ? "There are no rooms at the moment" : rooms));
+                    rooms -> rooms.isEmpty() ? "There are no rooms at the moment" : rooms));
     }
 
     private Availability isSignedIn() {

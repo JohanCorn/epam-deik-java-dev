@@ -10,7 +10,6 @@ import org.mockito.Mockito;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
 
@@ -52,6 +51,21 @@ class ScreeningServiceImplTest {
         // Then
         Assertions.assertEquals(expected, actual);
         Mockito.verify(screeningRepository).findByRoomName(ROOM.getName());
+    }
+
+    @Test
+    void testListByMovieTitleAndRoomNameAndStart() {
+        // Given
+        Mockito.when(screeningRepository.findByMovieTitleAndRoomNameAndStart(MOVIE.getTitle(), ROOM.getName(), SCREENING.getStart()))
+                .thenReturn(List.of(SCREENING));
+
+        // When
+        List<Screening> actual = underTest.listByMovieTitleAndRoomNameAndStart(MOVIE.getTitle(), ROOM.getName(), SCREENING.getStart());
+        List<Screening> expected = List.of(SCREENING);
+
+        // Then
+        Assertions.assertEquals(expected, actual);
+        Mockito.verify(screeningRepository).findByMovieTitleAndRoomNameAndStart(MOVIE.getTitle(), ROOM.getName(), SCREENING.getStart());
     }
 
     @Test

@@ -25,11 +25,29 @@ public class ScreeningTest {
     }
 
     @Test
+    void testIsOverlappingShouldReturnTrueWhenScreeningStartedBeforeAnotherScreeningEnded() {
+        // Given
+        // When
+        Screening anotherScreening = new Screening(MOVIE, ROOM, new Date(underTest.getStart().getTime() + 20 * 60_000L));
+        // Then
+        Assertions.assertTrue(underTest.isOverlapping(anotherScreening));
+    }
+
+    @Test
+    void testIsOverlappingShouldReturnTrueWhenScreeningEndedAfterAnotherScreeningStarted() {
+        // Given
+        // When
+        Screening anotherScreening = new Screening(MOVIE, ROOM, new Date(underTest.getEnd().getTime() - 20 * 60_000L));
+        // Then
+        Assertions.assertTrue(underTest.isOverlapping(anotherScreening));
+    }
+
+    @Test
     void testGetDateFormatShouldReturnTheExactDateFormat() {
         // Given
         // When
         // Then
-        Assertions.assertEquals("yyyy-MM-dd hh:mm", Screening.getDateFormat());
+        Assertions.assertEquals("yyyy-MM-dd HH:mm", Screening.getDateFormat());
     }
 
     @Test

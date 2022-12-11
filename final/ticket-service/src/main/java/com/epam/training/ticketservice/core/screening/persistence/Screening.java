@@ -53,7 +53,7 @@ public class Screening {
     }
 
     public static String getDateFormat() {
-        return "yyyy-MM-dd hh:mm";
+        return "yyyy-MM-dd HH:mm";
     }
 
     public boolean isOverlapping(Screening anotherScreening) {
